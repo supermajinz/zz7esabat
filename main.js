@@ -38,7 +38,7 @@ const gltfLoader = new GLTFLoader();
 gltfLoader.load('./models/subnofan.glb', (gltf) => {
     submarine = gltf.scene;
     submarine.scale.set(10, 10, 10);
-    submarine.position.set(0, 0, 0);
+    submarine.position.set(0, 2, 0);
     scene.add(submarine);
     createFanBlades();
 });
@@ -169,12 +169,12 @@ updateSun();
 
 const gui = new GUI();
 const rotationFolder = gui.addFolder('Submarine Rotation:');
-rotationFolder.add(SubmarineForcers, 'F_torque', -200, 200).name('Torque (τz)').step(10);
+rotationFolder.add(SubmarineForcers, 'F_torque', -200, 200).name('Torque (τz)').step(5);
 rotationFolder.open();
 
 const WithdrawalFolder = gui.addFolder('Withdrawal movement :');
 WithdrawalFolder.add(SubmarineForcers, 'tanks_water_volume', 0, 100).name('V.tanks_water cm3').step(1);
-WithdrawalFolder.add(SubmarineForcers, 'fan_speed', -10, 10).name('fan speed').step(0.1);
+WithdrawalFolder.add(SubmarineForcers, 'fan_speed', -2, 2).name('fan speed').step(0.05);
 WithdrawalFolder.open();
 
 const moveFolder = gui.addFolder('Auto Movement :');

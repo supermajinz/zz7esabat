@@ -79,7 +79,7 @@ class WithdrawalMovement {
         const frictionForce = this.calculateFrictionForce().clone(); // Use the current velocity
         const weightForce = this.calculateWeightForce(tanks_water_volume).clone();
         console.log(engineThrust.add(frictionForce));       
-         
+        //this.position.y = Math.max(this.position.y, -2);
         // return constantVector;
         return archimedesForce.add(weightForce).add(engineThrust).add(frictionForce);
     }
